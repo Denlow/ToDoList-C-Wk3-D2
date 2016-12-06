@@ -1,0 +1,43 @@
+-- How to start SQL command in PowerShell
+  sqlcmd -S "(localdb)\mssqllocaldb"
+
+  -- How to disconnect from SQL command
+  exit
+
+-- View which database we are currently connected to
+-- Master is the default database
+  SELECT DB_NAME();
+  GO
+
+  -- View all of the databases in the server
+  SELECT name FROM Sys.Databases;
+  GO
+
+-- Create a new database
+  CREATE DATABASE test_database;
+  GO
+
+-- How to select the database you want to use
+  USE test_database;
+  GO
+
+-- How to create a table  Here are two examples:
+  -- Long hand on multiple lines
+    CREATE TABLE contacts
+    (
+      name VARCHAR(255),
+      age INT,
+      birthday DATETIME
+    )
+    GO
+  -- Shorthand on one single line.  Either way is the same
+    CREATE TABLE contacts (name VARCHAR(255), age INT, birthday DATETIME)
+    GO
+
+-- To view all the tables in the database
+    SELECT name FROM sysobjects WHERE xtype='u';
+    GO
+
+
+
+    
